@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
       * {
         box-sizing: border-box;
@@ -189,9 +190,9 @@
 
       .nav-section {
         position: absolute;
-        top: 16px;
-        right: 16px;
-        left: 16px;
+        top: 0;
+        right: 0;
+        left: 0;
         z-index: 10;
         color: #ffffff;
       }
@@ -269,13 +270,13 @@
       }
 
       .hero-section {
-        padding: 16px 16px 0;
+        padding: 0;
       }
 
       .hero-card {
         position: relative;
         overflow: hidden;
-        border-radius: 18px;
+        border-radius: 0;
         background-color: #12476b;
         color: #ffffff;
       }
@@ -994,6 +995,7 @@
         bottom: 100%;
         left: 0;
         width: 200%;
+        max-width: none;
         height: 16px;
         margin-bottom: -1px;
         animation: process-wave-move 6s linear infinite;
@@ -1466,6 +1468,37 @@
       .service-map-canvas {
         position: absolute;
         inset: 0;
+        z-index: 0;
+      }
+
+      .service-map-pin-icon {
+        border: none;
+        background: none;
+      }
+
+      .service-map-pin-icon .service-map-pin {
+        position: static;
+        display: block;
+        transform: none;
+      }
+
+      .service-map-pin-icon .service-map-pin.is-active {
+        transform: scale(1.3);
+      }
+
+      .service-map-canvas .leaflet-control-attribution {
+        margin: 0;
+        padding: 2px 8px;
+        border-radius: 8px 0 0 0;
+        background-color: rgba(255, 255, 255, 0.75);
+        color: #5b6f84;
+        font-size: 10px;
+        line-height: 1.4;
+      }
+
+      .service-map-canvas .leaflet-control-attribution a {
+        color: inherit;
+        text-decoration: none;
       }
 
       .service-map-canvas-text {
@@ -1518,7 +1551,7 @@
       .service-map-legend {
         position: absolute;
         right: 14px;
-        bottom: 14px;
+        bottom: 28px;
         z-index: 3;
         display: flex;
         align-items: center;
@@ -2000,6 +2033,16 @@
         gap: 8px 24px;
       }
 
+      .footer-powered {
+        color: inherit;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .footer-powered:hover {
+        color: #ffffff;
+      }
+
       .footer-bottom-link {
         color: rgba(255, 255, 255, 0.75);
         text-decoration: none;
@@ -2130,13 +2173,13 @@
         }
 
         .hero-section {
-          padding: 10px 10px 0;
+          padding: 0;
         }
 
         .nav-section {
-          top: 10px;
-          right: 10px;
-          left: 10px;
+          top: 0;
+          right: 0;
+          left: 0;
         }
 
         .nav-phone {
@@ -3362,44 +3405,10 @@
                 </div>
               </aside>
               <div class="service-map-wrap">
-                <div class="service-map-canvas">
-                  <svg class="service-map-pin" style="left: 30%; top: 66%" viewBox="0 0 28 36" aria-hidden="true">
-                    <path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.3 21.7 0 14 0z" fill="#176fae" />
-                    <circle cx="14" cy="14" r="5" fill="#FFFFFF" />
-                  </svg>
-                  <svg class="service-map-pin" style="left: 36%; top: 74%" viewBox="0 0 28 36" aria-hidden="true">
-                    <path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.3 21.7 0 14 0z" fill="#176fae" />
-                    <circle cx="14" cy="14" r="5" fill="#FFFFFF" />
-                  </svg>
-                  <svg class="service-map-pin" style="left: 25%; top: 82%" viewBox="0 0 28 36" aria-hidden="true">
-                    <path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.3 21.7 0 14 0z" fill="#176fae" />
-                    <circle cx="14" cy="14" r="5" fill="#FFFFFF" />
-                  </svg>
-                  <svg class="service-map-pin" style="left: 40%; top: 60%" viewBox="0 0 28 36" aria-hidden="true">
-                    <path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.3 21.7 0 14 0z" fill="#176fae" />
-                    <circle cx="14" cy="14" r="5" fill="#FFFFFF" />
-                  </svg>
-                  <svg class="service-map-pin" style="left: 50%; top: 38%" viewBox="0 0 28 36" aria-hidden="true">
-                    <path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.3 21.7 0 14 0z" fill="#51DFFF" />
-                    <circle cx="14" cy="14" r="5" fill="#176fae" />
-                  </svg>
-                  <svg class="service-map-pin" style="left: 64%; top: 30%" viewBox="0 0 28 36" aria-hidden="true">
-                    <path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.3 21.7 0 14 0z" fill="#51DFFF" />
-                    <circle cx="14" cy="14" r="5" fill="#176fae" />
-                  </svg>
-                  <svg class="service-map-pin" style="left: 72%; top: 48%" viewBox="0 0 28 36" aria-hidden="true">
-                    <path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.3 21.7 0 14 0z" fill="#51DFFF" />
-                    <circle cx="14" cy="14" r="5" fill="#176fae" />
-                  </svg>
-                  <svg class="service-map-pin" style="left: 58%; top: 56%" viewBox="0 0 28 36" aria-hidden="true">
-                    <path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.3 21.7 0 14 0z" fill="#51DFFF" />
-                    <circle cx="14" cy="14" r="5" fill="#176fae" />
-                  </svg>
-                  <div class="service-map-canvas-text">Live map embed goes here, same as Pro Builders</div>
-                </div>
-                <div class="service-map-zoom" aria-hidden="true">
-                  <button class="service-map-zoom-button" type="button" tabindex="-1">+</button>
-                  <button class="service-map-zoom-button" type="button" tabindex="-1">−</button>
+                <div class="service-map-canvas" id="service-map-canvas"></div>
+                <div class="service-map-zoom">
+                  <button class="service-map-zoom-button" type="button" data-zoom="in" aria-label="Zoom in">+</button>
+                  <button class="service-map-zoom-button" type="button" data-zoom="out" aria-label="Zoom out">−</button>
                 </div>
                 <button class="service-map-expand-button" type="button" aria-label="Show service area list">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -3716,7 +3725,7 @@
           </div>
 
           <div class="footer-bottom">
-            <div class="footer-copyright">© 2026 Waterpal. All rights reserved.</div>
+            <div class="footer-copyright">© 2026 Waterpal. All rights reserved. Powered by <a class="footer-powered" href="https://estatehub.io" target="_blank" rel="noopener">EstateHub</a></div>
             <div class="footer-bottom-links">
               <a href="#" class="footer-bottom-link">Privacy Policy</a>
               <a href="#" class="footer-bottom-link">Terms</a>
@@ -3743,22 +3752,24 @@
       });
     </script>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
       let serviceMapSidebar = document.querySelector(".service-map-sidebar");
       let serviceMapCollapseButton = document.querySelector(".service-map-collapse-button");
       let serviceMapExpandButton = document.querySelector(".service-map-expand-button");
       let serviceMapSearchInput = document.querySelector(".service-map-search-input");
       let serviceMapItems = document.querySelectorAll(".service-map-item");
-      let serviceMapPins = document.querySelectorAll(".service-map-pin");
       let serviceMapEmpty = document.querySelector(".service-map-empty");
 
       serviceMapCollapseButton.addEventListener("click", () => {
         serviceMapSidebar.classList.add("is-collapsed");
+        refreshServiceMapSize();
         serviceMapExpandButton.focus();
       });
 
       serviceMapExpandButton.addEventListener("click", () => {
         serviceMapSidebar.classList.remove("is-collapsed");
+        refreshServiceMapSize();
         serviceMapCollapseButton.focus();
       });
 
@@ -3778,19 +3789,104 @@
         serviceMapEmpty.hidden = visibleCount > 0;
       });
 
+      const serviceMapTowns = [
+        { lat: 41.824, lng: -71.4128, state: "ri" },
+        { lat: 41.7798, lng: -71.4373, state: "ri" },
+        { lat: 41.7001, lng: -71.4162, state: "ri" },
+        { lat: 41.8787, lng: -71.3826, state: "ri" },
+        { lat: 41.9445, lng: -71.2856, state: "ma" },
+        { lat: 41.9001, lng: -71.0898, state: "ma" },
+        { lat: 41.7015, lng: -71.155, state: "ma" },
+        { lat: 41.8084, lng: -71.337, state: "ma" },
+      ];
+      const serviceMapPinMarkup = {
+        ri: '<svg class="service-map-pin" viewBox="0 0 28 36" aria-hidden="true"><path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.3 21.7 0 14 0z" fill="#176fae" /><circle cx="14" cy="14" r="5" fill="#FFFFFF" /></svg>',
+        ma: '<svg class="service-map-pin" viewBox="0 0 28 36" aria-hidden="true"><path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.3 21.7 0 14 0z" fill="#51DFFF" /><circle cx="14" cy="14" r="5" fill="#176fae" /></svg>',
+      };
+      let serviceMap = null;
+      let serviceMapMarkers = [];
+
+      const refreshServiceMapSize = () => {
+        window.setTimeout(() => {
+          if (serviceMap) {
+            serviceMap.invalidateSize();
+          }
+        }, 320);
+      };
+
+      const setServiceMapPinState = (marker, isActive) => {
+        const element = marker.getElement();
+        const pin = element ? element.querySelector(".service-map-pin") : null;
+        if (pin) {
+          pin.classList.toggle("is-active", isActive);
+        }
+      };
+
+      const selectServiceArea = (pinIndex, shouldPan) => {
+        serviceMapItems.forEach((otherItem) => {
+          otherItem.classList.remove("is-active");
+        });
+        serviceMapMarkers.forEach((marker) => {
+          setServiceMapPinState(marker, false);
+        });
+
+        const item = serviceMapItems[pinIndex];
+        const marker = serviceMapMarkers[pinIndex];
+        if (item) {
+          item.classList.add("is-active");
+        }
+        if (marker) {
+          setServiceMapPinState(marker, true);
+          if (shouldPan && serviceMap) {
+            serviceMap.panTo(marker.getLatLng());
+          }
+        }
+      };
+
+      if (window.L) {
+        serviceMap = L.map("service-map-canvas", { zoomControl: false, scrollWheelZoom: false });
+        serviceMap.attributionControl.setPrefix(false);
+        serviceMap.attributionControl.setPosition("bottomright");
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 18,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }).addTo(serviceMap);
+
+        serviceMapMarkers = serviceMapTowns.map((town, index) => {
+          const marker = L.marker([town.lat, town.lng], {
+            icon: L.divIcon({
+              className: "service-map-pin-icon",
+              html: serviceMapPinMarkup[town.state],
+              iconSize: [28, 36],
+              iconAnchor: [14, 36],
+            }),
+            keyboard: false,
+          }).addTo(serviceMap);
+          marker.on("click", () => {
+            selectServiceArea(index, false);
+          });
+          return marker;
+        });
+
+        serviceMap.fitBounds(
+          L.latLngBounds(serviceMapTowns.map((town) => [town.lat, town.lng])),
+          { padding: [48, 48] }
+        );
+
+        document.querySelectorAll(".service-map-zoom-button").forEach((button) => {
+          button.addEventListener("click", () => {
+            if (button.dataset.zoom === "in") {
+              serviceMap.zoomIn();
+            } else {
+              serviceMap.zoomOut();
+            }
+          });
+        });
+      }
+
       serviceMapItems.forEach((item) => {
         item.querySelector(".service-map-item-button").addEventListener("click", () => {
-          let pinIndex = Number(item.dataset.pin);
-
-          serviceMapItems.forEach((otherItem) => {
-            otherItem.classList.remove("is-active");
-          });
-          serviceMapPins.forEach((pin) => {
-            pin.classList.remove("is-active");
-          });
-
-          item.classList.add("is-active");
-          serviceMapPins[pinIndex].classList.add("is-active");
+          selectServiceArea(Number(item.dataset.pin), true);
         });
       });
     </script>
